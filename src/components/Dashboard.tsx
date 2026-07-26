@@ -9,6 +9,7 @@ interface DashboardProps {
   recipes: Recipe[];
   onSelectRecipe: (recipe: Recipe) => void;
   onAddGroceryItems: (recipe: Recipe) => void;
+  onOpenProfile: () => void;
 }
 
 export const Dashboard: React.FC<DashboardProps> = ({
@@ -16,11 +17,14 @@ export const Dashboard: React.FC<DashboardProps> = ({
   recipes,
   onSelectRecipe,
   onAddGroceryItems,
+  onOpenProfile,
 }) => {
   return (
     <div className="space-y-6 w-full pb-6">
       {/* Standalone Chef Profile Card Component */}
-      <ChefProfileCard profile={profile} />
+      <div onClick={onOpenProfile} className="cursor-pointer">
+        <ChefProfileCard profile={profile} />
+      </div>
 
       {/* Quest Gallery Title */}
       <div className="flex justify-between items-center px-1">
